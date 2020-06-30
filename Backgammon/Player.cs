@@ -225,14 +225,28 @@ namespace Backgammon
         {
             int highestPlaceChecker = 0;
             if (orientation == Orientation.left)
-            {             
+            {
+                for (int i = 0; i < 6; i++)
+                {
+                    if (board.placements[i].colorOfCheckers == color)
+                    {
+                        highestPlaceChecker = i;
+                    }
+                }
                 if (from - diceNumber == -1 || (highestPlaceChecker == from && from - diceNumber < -1))
                 {
                     return true;
                 }
             }
             else
-            {             
+            {
+                for (int i = 23; i > 17; i--)
+                {
+                    if (board.placements[i].colorOfCheckers == color)
+                    {
+                        highestPlaceChecker = i;
+                    }
+                }
                 if (from + diceNumber == 24 || (highestPlaceChecker == from && from + diceNumber > 24))
                 {
                     return true;
