@@ -258,7 +258,23 @@ namespace Backgammon
             {
                 if (playerOne.isMyTurn)
                 {
-                    if (toIndex - playerInitialPlacementChoice <= dice.diceOne)
+                    if (toIndex == 24)
+                    {
+                        if (toIndex - playerInitialPlacementChoice <= dice.diceOne)
+                        {
+                            if (toIndex - playerInitialPlacementChoice > dice.diceTwo)
+                            {
+                                dice.diceOnePlayed();
+                            }                               
+
+                        }
+                        else
+                        {
+                            dice.diceTwoPlayed();
+                        }
+
+                    }
+                    else if (toIndex - playerInitialPlacementChoice == dice.diceOne)
                     {
                         dice.diceOnePlayed();
                     }
@@ -269,8 +285,23 @@ namespace Backgammon
                 }
                 else
                 {
-
-                    if (playerInitialPlacementChoice - toIndex > dice.diceOne)
+                    if (toIndex == -1)
+                    {
+                        //playerInitialPlacementChoice == dice.diceOne -1
+                        if (-1 >= playerInitialPlacementChoice - dice.diceOne)
+                        {
+                            if (playerInitialPlacementChoice - dice.diceTwo > -1)
+                            {
+                                dice.diceOnePlayed();
+                            }
+                                
+                        }
+                        else
+                        {
+                            dice.diceTwoPlayed();
+                        }
+                    }
+                    else if (playerInitialPlacementChoice - toIndex == dice.diceOne)
                     {
                         dice.diceOnePlayed();
                     }
@@ -278,7 +309,6 @@ namespace Backgammon
                     {
                         dice.diceTwoPlayed();
                     }
-
                 }
             }
         }
