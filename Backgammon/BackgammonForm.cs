@@ -124,6 +124,7 @@ namespace Backgammon
                         startRollMenuForm.Show();
                         this.Close();
                     }
+                    eventHandler.Text = string.Format("You have {0} moves left", gameController.numberOfMovesLeft);
                     refreshUIAfterMove();
                 }
                 if (gameController.playerInitialPlacementChoice != null && gameController.isLegalRemoveMove(gameController.dice.diceTwo))
@@ -138,6 +139,7 @@ namespace Backgammon
                         
                         this.Close();
                     }
+                    eventHandler.Text = string.Format("You have {0} moves left", gameController.numberOfMovesLeft);
                     refreshUIAfterMove();
                 }
             }
@@ -169,6 +171,7 @@ namespace Backgammon
                         startRollMenuForm.Show();
                         this.Close();
                     }
+                    eventHandler.Text = string.Format("You have {0} moves left", gameController.numberOfMovesLeft);
                     refreshUIAfterMove();
                 }
                 if (gameController.playerInitialPlacementChoice != null && gameController.isLegalRemoveMove(gameController.dice.diceTwo))
@@ -183,6 +186,7 @@ namespace Backgammon
                         this.Close();
 
                     }
+                    eventHandler.Text = string.Format("You have {0} moves left", gameController.numberOfMovesLeft);
                     refreshUIAfterMove();
                 }
             }
@@ -262,6 +266,7 @@ namespace Backgammon
             {
                 MessageBox.Show("You have no legal moves left");
                 gameController.swapTurns();
+                txtTurn.Text = string.Format("Turn: {0} player.", gameController.playerOne.isMyTurn ? gameController.playerOne.color.ToString() : gameController.playerTwo.color.ToString());
             }
             this.Refresh();
         }
