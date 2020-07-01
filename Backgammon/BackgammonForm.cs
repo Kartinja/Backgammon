@@ -111,7 +111,36 @@ namespace Backgammon
                     eventHandler.Text = " You need to roll the dice firsts!";
                 }
             }
-          
+            else if (gameController.playerOne.canRemoveCheckers(board))
+            {
+                if (gameController.playerInitialPlacementChoice != null && gameController.isLegalRemoveMove(gameController.dice.diceOne))
+                {
+                    gameController.setRemoveCheckerMove(gameController.dice.diceOne);
+
+                    if (gameController.playerOne.GetCheckersAtHome(board) == 0)
+                    {
+                        MessageBox.Show(string.Format("Player {0} won!", gameController.playerOne.color.ToString()));
+                        StartRollMenuForm startRollMenuForm = new StartRollMenuForm();
+                        startRollMenuForm.Show();
+                        this.Close();
+                    }
+                    refreshUIAfterMove();
+                }
+                if (gameController.playerInitialPlacementChoice != null && gameController.isLegalRemoveMove(gameController.dice.diceTwo))
+                {
+                    gameController.setRemoveCheckerMove(gameController.dice.diceTwo);
+
+                    if (gameController.playerOne.GetCheckersAtHome(board) == 0)
+                    {
+                        MessageBox.Show(string.Format("Player {0} won!", gameController.playerOne.color.ToString()));
+                        StartRollMenuForm startRollMenuForm = new StartRollMenuForm();
+                        startRollMenuForm.Show();
+                        
+                        this.Close();
+                    }
+                    refreshUIAfterMove();
+                }
+            }
         }
         private void playerTwoRemovedCheckers_Click(object sender, EventArgs e)
         {
@@ -127,7 +156,36 @@ namespace Backgammon
                     eventHandler.Text = " You need to roll the dice firsts!";
                 }
             }
-           
+            else if (gameController.playerTwo.canRemoveCheckers(board))
+            {
+                if (gameController.playerInitialPlacementChoice != null && gameController.isLegalRemoveMove(gameController.dice.diceOne))
+                {
+                    gameController.setRemoveCheckerMove(gameController.dice.diceOne);
+
+                    if (gameController.playerTwo.GetCheckersAtHome(board) == 0)
+                    {
+                        MessageBox.Show(string.Format("Player {0} won!", gameController.playerTwo.color.ToString()));
+                        StartRollMenuForm startRollMenuForm = new StartRollMenuForm();
+                        startRollMenuForm.Show();
+                        this.Close();
+                    }
+                    refreshUIAfterMove();
+                }
+                if (gameController.playerInitialPlacementChoice != null && gameController.isLegalRemoveMove(gameController.dice.diceTwo))
+                {
+                    gameController.setRemoveCheckerMove(gameController.dice.diceTwo);
+
+                    if (gameController.playerTwo.GetCheckersAtHome(board) == 0)
+                    {
+                        MessageBox.Show(string.Format("Player {0} won!", gameController.playerTwo.color.ToString()));
+                        StartRollMenuForm startRollMenuForm = new StartRollMenuForm();
+                        startRollMenuForm.Show();
+                        this.Close();
+
+                    }
+                    refreshUIAfterMove();
+                }
+            }
         }
 
         private void tryGetAndExecuteFinalMove(int clickedPlacement)
