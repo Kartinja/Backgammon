@@ -1,4 +1,4 @@
-# backgammon
+# Backgammon
 School project for visual programming by: Dejan Popovski, Aleksandar Nikolov and Kristijan Kosmach
 
 Нашиот проект е изработка на познатата друштвена игра табла. Правилата за играње на играта може да се видат на следното видео https://www.youtube.com/watch?v=KDvvKWi0ijs.
